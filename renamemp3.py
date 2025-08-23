@@ -26,6 +26,12 @@ def has_subfolders_listdir(folder):
     all_entries = os.listdir(folder)
     return [entry for entry in all_entries if os.path.isdir(os.path.join(folder, entry))]
 
+def validFilename(s):
+    """
+    Changes a string into a valid filename.
+    """
+    return "".join(x for x in s if x.isalnum())
+
 
 
 # Here is the main body of the code.
@@ -37,8 +43,8 @@ for folder in folderList:
     for curFile in fileList:
         audio = EasyID3(curFile)
         try:
-            artist = audio.get("artist")[0]
-            title = audio.get("title")[0]
+            artist = validFilename(audio.get("artist")[0])
+            title = validFilename(audio.get("title")[0])
             curPath = os.path.dirname(curFile)
             newName = f"{curPath}\{artist} - {title}.mp3"
             os.rename(curFile,newName)
