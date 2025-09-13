@@ -95,9 +95,6 @@ for artist in allArtists:
 for curFile in allfiles:
     try:
         newlocation = mainFolder + "\\" + artistInfo[curFile]
-    except: 
-        pass
-    try:
         shutil.move(curFile,newlocation)
     except:
         pass
