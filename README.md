@@ -1,7 +1,10 @@
 # renameMP3
-Script to rename all my MP3 files. Assumes metadata is intact but filenames are non-descriptive. 
+I have a bunch of folders with arbitrary names from an old Ipod. 
+This script gets the artist metadata, creates a folder for each unique artist, and moves the files into that folder.
+It also renames the MP3s at the end, but that part is commented out.
 
 Requires:
 mutagen
 os
 glob
+pathvalidate
